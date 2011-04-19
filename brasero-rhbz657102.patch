@@ -1,0 +1,26 @@
+diff -uNdr brasero-2.32.0.orig/libbrasero-burn/burn-dbus.c brasero-2.32.0/libbrasero-burn/burn-dbus.c
+--- brasero-2.32.0.orig/libbrasero-burn/burn-dbus.c	2010-09-10 16:34:38.000000000 +0400
++++ brasero-2.32.0/libbrasero-burn/burn-dbus.c	2010-12-28 13:07:38.086717215 +0300
+@@ -81,8 +81,8 @@
+ 			    error->message);
+ 		g_error_free (error);
+ 	}
+-
+-	g_variant_unref (res);
++	else 
++		g_variant_unref (res);
+ }
+ 
+ gint
+@@ -127,9 +127,9 @@
+ 	}
+ 	else {
+ 		g_variant_get (res, "(u)", &cookie);
++		g_variant_unref (res);
+ 	}
+ 
+-	g_variant_unref (res);
+-
++	
+ 	return cookie;
+ }
